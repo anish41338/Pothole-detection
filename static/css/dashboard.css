@@ -1,0 +1,213 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0a162f, #11294f);
+  color: #fff;
+}
+
+.top-bar {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.top-bar h1 {
+  color: black;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+.logout-button {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 40px;
+}
+
+.card {
+  background-color: white;
+  color: black;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-content a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navigate-button {
+  margin-top: 10px;
+  display: inline-block;
+  text-align: center;
+  background-color: #00796B;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* Map icon next to link */
+.icon {
+  width: 16px !important;
+  height: 16px !important;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  color: black !important;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 6px;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+}
+
+/* Updated button style */
+.navigate-button {
+  margin-top: 10px;
+  display: inline-block;
+  text-align: center;
+  background-color: black;
+  color: white !important;  /* <-- fix */
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.navigate-button:hover {
+  background-color: #222;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: teal;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.card {
+  position: relative; /* make badge position relative to this */
+}
+.view-toggle {
+  text-align: center;
+  margin: 20px;
+}
+.view-toggle button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+}
+.filter-sort {
+  text-align: center;
+  margin: 10px 0;
+}
+.filter-sort select {
+  padding: 8px;
+  font-size: 14px;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start; /* left-align */
+  padding: 20px;
+}
+
+.view-toggle button {
+  margin-right: 10px;
+  padding: 10px 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.filter-sort select {
+  padding: 8px;
+  font-size: 14px;
+}
+.card-container.carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.card-container.carousel .card {
+  min-width: 300px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+.card-carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.card-carousel {
+  display: flex;
+  gap: 20px;
+  animation: scroll-left 40s linear infinite;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 300px;
+  border-radius: 10px;
+  background: white;
+}
+
+
+
+

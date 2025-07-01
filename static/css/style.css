@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a162f, #11294f); /* matches image tone */
+}
+
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 1000px;
+  height: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1.5s ease;
+}
+
+.form-section {
+  flex: 1;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: white; /* solid white */
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* New styles for headings */
+h1 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 32px;
+  color: #111; /* black */
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #111; /* black */
+}
+
+
+.image-section {
+  flex: 1;
+  background-color: #0a162f; /* fallback color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.3);  /* subtle black border */
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;
+  transition: border 0.2s ease;
+}
+
+input:focus {
+  border: 1px solid #000; /* bolden slightly on focus */
+  outline: none;
+}
+
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+button.login-link {
+  background: none;
+  color: #50b3ff;
+  border: none;
+  padding: 0;
+  margin-left: 4px;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.switch {
+  font-size: 14px;
+  margin-top: 15px;
+  color: #fff;
+}
+
+.alert {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}

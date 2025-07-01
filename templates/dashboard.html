@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <script>
+  const images = JSON.parse('{{ images | tojson | safe }}');
+</script>
+
+  <script defer src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH7GGWPcQzuwruC7XduFygwcn0HIjwnz0&libraries=visualization"></script>
+  
+
+</head>
+<body>
+  <div class="top-bar">
+    <h1>Pothole Detection System</h1>
+    <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+  </div>
+
+  <div class="controls">
+    <div class="view-toggle">
+      <button id="gridBtn">Grid View</button>
+      <button id="mapBtn">Map View</button>
+    </div>
+    <div class="filter-sort">
+      <label>Sort by:
+        <select onchange="sortCards(this.value)">
+          <option value="latest">Latest</option>
+          <option value="count_desc">Most Potholes</option>
+          <option value="count_asc">Fewest Potholes</option>
+          <option value="nearest">Nearest</option>
+          <option value="farthest">Farthest</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <div class="card-container grid" id="gridView">
+    {% for image in images %}
+    <div class="card" data-id="{{ image.id }}" data-count="{{ image.count }}" data-lat="{{ image.latitude }}" data-lng="{{ image.longitude }}">
+      <div class="badge">{{ image.count }} pothole{{ 's' if image.count > 1 }}</div>
+      <img src="{{ image.url }}" alt="pothole image">
+      <div class="card-content">
+        <p><strong>ID:</strong> {{ image.id }}</p>
+        <p><strong>Coordinates:</strong> {{ image.latitude }}, {{ image.longitude }}</p>
+
+        <a href="https://maps.google.com/?q={{ image.latitude }},{{ image.longitude }}" target="_blank" class="map-link">
+          <img src="{{ url_for('static', filename='images/map-icon.png') }}" class="icon">
+          View on Google Maps
+        </a>
+
+        <a href="https://maps.google.com/?q={{ image.latitude }},{{ image.longitude }}" class="navigate-button" target="_blank">
+          Navigate to Location
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div id="map" style="display: none; width: 100%; height: 600px;"></div>
+  <div id="mapView" style="display: none;">
+    <iframe
+      src="https://www.google.com/maps/embed?..."
+      width="100%"
+      height="600"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+</body>
+</html>
